@@ -201,6 +201,20 @@ def main():
     for line in summary_lines(r):
         if line not in readme:
             failures.append(f"README does not carry the measured line: {line}")
+    # The section tables carry the same counts in prose, and a table cell rots as quietly as a badge.
+    bi = r["by_intent"]
+    for cell in [
+        f"| contract | {bi['contract']['correct']} of {bi['contract']['n']} |",
+        f"| knowledge | {bi['knowledge']['correct']} of {bi['knowledge']['n']} |",
+        f"| off topic | {bi['unknown']['correct']} of {bi['unknown']['n']} |",
+        f"{r['sql_validated']} of {r['sql_generated']} pass the validator",
+        f"{r['columns_complete']} of {r['contract_routed']} carry every column",
+        f"{r['literal_refused']} of {r['literal_probes']} refused on the way in",
+        f"{r['paraphrases_reached_generator']} of {r['paraphrases']} reached the generator, {r['paraphrases_changed_sql']} changed the SQL",
+        f"Retrieval at {r['retrieval_top1_hits']} of {r['retrieval_queries']}",
+    ]:
+        if cell not in readme:
+            failures.append(f"README table does not carry the measured cell: {cell}")
 
     if failures:
         print("CHECK FAILED")
