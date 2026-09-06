@@ -41,7 +41,7 @@ def render():
         x = 40 + i * (cw + 20)
         cx = x + cw / 2
         o.append(f'<rect x="{x}" y="{y}" width="{cw}" height="{ch}" rx="12" fill="{CARD}" fill-opacity=".92" stroke="{EDGE}"/>')
-        o.append(f'<rect x="{x}" y="{y}" width="7" height="{ch}" rx="3.5" fill="{ACCENT}"/>')
+        o.append(f'<rect x="{x}" y="{y}" width="7" height="{ch}" rx="3.5" fill="{ACCENT}" fill-opacity=".6"/>')
         fits(name, 24, cw, bold=True, mono=True)
         o.append(text(cx, y + 42, name, 24, ACCENT, bold=True, mono=True, anchor="middle", spacing=2))
         for j, ln in enumerate(q):
@@ -51,7 +51,7 @@ def render():
         fits(truth, 26, cw, bold=True)
         o.append(text(cx, y + 188, truth, 26, INK, bold=True, anchor="middle"))
         fits(when, 22, cw, mono=True)
-        o.append(text(cx, y + 222, when, 22, ACCENT, mono=True, anchor="middle"))
+        o.append(text(cx, y + 222, when, 22, DIM, mono=True, anchor="middle"))
     fits(FOOT, 22, W, mono=True)
     o.append(text(W / 2, 432, FOOT, 22, DIM, mono=True, anchor="middle"))
     o.append("</svg>")

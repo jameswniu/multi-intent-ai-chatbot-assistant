@@ -3,9 +3,9 @@ import html
 
 SANS = "-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif"
 MONO = "ui-monospace,SFMono-Regular,Menlo,monospace"
-BG0, BG1 = "#14171c", "#1c2027"
-INK, DIM, EDGE, CARD = "#e7e5e0", "#9a9a93", "#3a3f47", "#20242b"
-ACCENT, FAIL = "#7aa6d8", "#d0705a"
+BG0, BG1 = "#0f1216", "#171b21"
+INK, DIM, EDGE, CARD = "#e6e8eb", "#8b929c", "#2b3138", "#1a1f26"
+ACCENT, FAIL = "#7f9bb8", "#b5654a"
 
 
 def fits(text, size, box_w, pad=14, bold=False, mono=False):

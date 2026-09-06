@@ -60,10 +60,10 @@ def render():
         for s, sz, b, m in ((title, 24, True, False), (detail, 22, False, False), (foot, 22, False, True)):
             fits(s, sz, cw, bold=b, mono=m)
         o.append(f'<rect x="{x}" y="{y}" width="{cw}" height="{ch}" rx="10" fill="{CARD}" fill-opacity=".92" stroke="{EDGE}"/>')
-        o.append(f'<rect x="{x}" y="{y}" width="5" height="{ch}" rx="2.5" fill="{color}"/>')
+        o.append(f'<rect x="{x}" y="{y}" width="5" height="{ch}" rx="2.5" fill="{color}" fill-opacity="{1 if color == FAIL else .6}"/>')
         o.append(text(x + 18, y + 34, title, 24, INK, bold=True))
         o.append(text(x + 18, y + 62, detail, 22, DIM))
-        o.append(text(x + 18, y + 88, foot, 22, color, mono=True))
+        o.append(text(x + 18, y + 88, foot, 22, color if color == FAIL else DIM, mono=True))
 
     o.append(text(60, 592, "02  WHO OWNS THE LOCK", 22, ACCENT, bold=True, mono=True, spacing=2))
     o.append(text(370, 592, "each lock answers to its own source of truth", 22, DIM))
@@ -71,7 +71,7 @@ def render():
     for i, (name, lines) in enumerate(TIERS):
         x = 60 + i * (tw + 14)
         o.append(f'<rect x="{x}" y="{ty}" width="{tw}" height="{th}" rx="10" fill="{CARD}" fill-opacity=".92" stroke="{EDGE}"/>')
-        o.append(f'<rect x="{x}" y="{ty}" width="5" height="{th}" rx="2.5" fill="{ACCENT}"/>')
+        o.append(f'<rect x="{x}" y="{ty}" width="5" height="{th}" rx="2.5" fill="{ACCENT}" fill-opacity=".6"/>')
         fits(name, 24, tw, bold=True, mono=True)
         o.append(text(x + 18, ty + 36, name, 24, ACCENT, bold=True, mono=True, spacing=2))
         for j, ln in enumerate(lines):
@@ -83,7 +83,7 @@ def render():
     pw, ph, py = 352, 92, 842
     for i, (name, detail, live) in enumerate(PHASES):
         x = 60 + i * (pw + 14)
-        fill, stroke, c1, c2 = (ACCENT, ACCENT, BG0, BG0) if live else (CARD, EDGE, INK, DIM)
+        fill, stroke, c1, c2 = (CARD, ACCENT, ACCENT, INK) if live else (CARD, EDGE, INK, DIM)
         o.append(f'<rect x="{x}" y="{py}" width="{pw}" height="{ph}" rx="10" fill="{fill}" fill-opacity="{1 if live else .92}" stroke="{stroke}"/>')
         fits(name, 24, pw, bold=True)
         fits(detail, 22, pw)
