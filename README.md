@@ -163,7 +163,7 @@ Everything in the first block ran, in CI, on this branch.
 
 ## Recounted on every push
 
-- [`evals/score.py`](evals/score.py) runs the committed pilot against [`evals/cases.jsonl`](evals/cases.jsonl) and prints the five lines below.
+- [`evals/score.py`](evals/score.py) runs the committed pilot against [`evals/cases.jsonl`](evals/cases.jsonl) and prints the six lines below.
 - With `--check` it fails if [`evals/report.json`](evals/report.json) or any badge on this page disagrees with what it just measured.
 - CI runs it after the tests, so a hand-typed count cannot go stale on this page.
 
