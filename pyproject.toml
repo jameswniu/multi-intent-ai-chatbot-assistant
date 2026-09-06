@@ -1,0 +1,10 @@
+# Not a package. Every file here is an independently invoked leaf, and pretending
+# otherwise would be a fiction for the benefit of tooling. This file exists so
+# pytest finds the repository root on sys.path from a fresh clone.
+#
+#   pip install -r requirements.txt      the Phase 1 pilot, offline after one model download
+#   pip install pytest                   the test suite
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

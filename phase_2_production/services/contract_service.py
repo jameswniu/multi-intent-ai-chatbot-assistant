@@ -5,7 +5,7 @@ Secure SQL microservice using LLM for natural-language to SQL translation.
 import os
 import sqlite3
 from openai import OpenAI
-from guardrails.sql_validator import validate_sql
+from phase1_pilot.guardrails.sql_validator import validate_sql
 
 class ContractService:
     def __init__(self, db_path="phase2_production/data/contracts.db"):

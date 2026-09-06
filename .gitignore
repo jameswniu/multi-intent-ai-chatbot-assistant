@@ -205,3 +205,6 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Phase 1 builds its SQLite database from data/mock_contracts.sql on first run.
+phase1_pilot/data/*.db

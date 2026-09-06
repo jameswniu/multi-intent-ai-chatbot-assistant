@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/jameswniu/multi-intent-ai-chatbot-assistant'
+    repoURL: 'https://github.com/jameswniu/questions-to-sql-intent-router'
     targetRevision: HEAD
     path: phase3_scaling/helm
   destination:
